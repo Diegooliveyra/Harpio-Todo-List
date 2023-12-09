@@ -15,7 +15,7 @@ export default {
     semiBold: 600,
 
     sizes: {
-      h1: '2.4rem',
+      h1: '3.2rem',
       h2: '2rem',
       h3: '1.6rem',
       body: '1.6rem',
