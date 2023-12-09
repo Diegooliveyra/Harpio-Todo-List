@@ -8,3 +8,11 @@ export const Container = styled.div`
     gap: ${theme.spacings.xxsmall};
   `}
 `;
+
+export const WrapperPagination = styled.div`
+  ${() => css`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  `}
+`;
