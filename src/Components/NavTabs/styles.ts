@@ -2,27 +2,11 @@ import theme from '@/styles/theme';
 import styled, { css } from 'styled-components';
 
 export const Content = styled.div`
-  &::-webkit-scrollbar {
-    height: 10px;
-    max-width: 100px;
-    border: 1px solid #ddd;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #ddd;
-    border: 1px solid #ddd;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #2b45d4;
-    border-radius: 10px;
-  }
-
   display: flex;
   width: 100%;
   align-items: center;
   margin: 50px 0 25px;
-  overflow: auto;
+  overflow: hidden;
   gap: 10px;
   border-bottom: 1px solid ${theme.colors.grayLight};
 
@@ -83,8 +67,8 @@ export const Tabs = styled.div<TabsProps>`
       }
     }
 
-    @media screen and (max-width: 1024px) {
-      min-width: 180px;
+    @media screen and (min-width: 1024px) {
+      min-width: 80px;
     }
   `}
 `;
