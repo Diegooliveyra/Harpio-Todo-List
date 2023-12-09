@@ -71,7 +71,6 @@ const Pagination = ({
     <S.Wrapper>
       <S.Pagination>
         <div className="prev">
-          <span onClick={() => first(0)}>Primeira</span>
           <span
             onClick={() => prev(selectedElement <= 0 ? 0 : selectedElement - 1)}
           >
@@ -103,7 +102,6 @@ const Pagination = ({
           >
             Próxima
           </span>
-          <span onClick={() => last(totalPage - 1)}>Última</span>
         </div>
       </S.Pagination>
     </S.Wrapper>
