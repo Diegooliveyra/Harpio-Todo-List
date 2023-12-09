@@ -7,6 +7,6 @@ export const Container = styled.header`
   ${() => css`
     max-width: ${theme.grid.container};
     margin: 0 auto;
-    padding-top: ${theme.spacings.xxlarge};
+    padding: ${theme.spacings.xxlarge} ${theme.spacings.xsmall} 0;
   `}
 `;
