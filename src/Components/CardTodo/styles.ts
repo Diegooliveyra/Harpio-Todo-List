@@ -10,6 +10,7 @@ export const Card = styled.div`
     border-left: 12px solid ${theme.colors.green};
     border-radius: ${theme.border.radius};
     transition: all ease 0.3s;
+    background: #fff;
     cursor: pointer;
 
     &:hover {

@@ -7,6 +7,7 @@ export const Form = styled.div`
     flex-direction: column;
     gap: ${theme.spacings.xxsmall};
     padding-top: ${theme.spacings.large};
+    color: ${theme.colors.black};
   `}
 `;
 
@@ -32,8 +33,9 @@ export const Label = styled.label`
 export const TextAreaStyled = styled.textarea`
   padding: ${theme.spacings.xsmall};
   font-size: 16px;
-  border: 1px solid ${theme.colors.gray};
+  border: 1px solid ${theme.colors.grayLight};
   border-radius: ${theme.border.radius};
+  font-family: 'Poppins', 'Open Sans', sans-serif;
   color: ${theme.colors.black};
   width: 100%;
   outline: none;
@@ -44,35 +46,13 @@ export const TextAreaStyled = styled.textarea`
   }
 `;
 
-export const SelectWrapper = styled.div`
-  margin-bottom: 15px;
-`;
-
-export const SelectStyled = styled.select`
-  padding: ${theme.spacings.xsmall};
-  font-size: 16px;
-  border: 1px solid ${theme.colors.gray};
-  border-radius: ${theme.border.radius};
-  color: ${theme.colors.black};
-  width: 100%;
-  outline: none;
-  appearance: none;
-
-  &:focus {
-    border-color: ${theme.colors.green};
-  }
-`;
-
-export const Option = styled.option`
-  padding: 10px;
-`;
-
 export const WrapperButtons = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
   gap: ${theme.spacings.xsmall};
+  margin-top: ${theme.spacings.small};
 
   button {
     width: fit-content;

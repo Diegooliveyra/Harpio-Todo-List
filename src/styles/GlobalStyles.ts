@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: 'Poppins', 'Open Sans', sans-serif;
       font-size: ${theme.font.sizes.body};
 
-      background-color: ${theme.colors.black.dark};
+      background-color: ${theme.colors.white};
       color: ${theme.colors.white};
     }
   `}
