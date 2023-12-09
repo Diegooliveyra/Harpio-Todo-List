@@ -9,12 +9,10 @@ export default {
   },
 
   font: {
-    family: "'Open Sans', sans-serif",
+    family: "Poppins, 'Open Sans', sans-serif",
     light: 300,
     normal: 400,
     semiBold: 600,
-    bold: 700,
-    extraBold: 800,
 
     sizes: {
       h1: '2.4rem',
@@ -27,22 +25,12 @@ export default {
   },
 
   colors: {
-    purple: {
-      dark: '#5033C3',
-      light: '#8162FF',
-    },
-
-    black: {
-      light: '#1A1A1A',
-      dark: '#0B0B0B',
-    },
-
-    gray: {
-      light: '#1A1A1A',
-      medium: '#676767',
-      dark: '#2A2A2A',
-    },
-
+    black: '#767676',
+    gray: '#B1B1B1',
+    grayLight: '#ECECEC',
+    green: '#07AF9D',
+    red: '#FA4949',
+    yellow: '#FECE01',
     white: '#ede9f0',
   },
 
@@ -54,14 +42,6 @@ export default {
     medium: '3.2rem',
     large: '4.0rem',
     xlarge: '4.8rem',
-    xxlarge: '5.6rem',
-  },
-
-  layers: {
-    base: 10,
-    menu: 20,
-    overlay: 30,
-    modal: 40,
-    alwaysOnTop: 50,
+    xxlarge: '10rem',
   },
 } as const;
