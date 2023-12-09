@@ -15,7 +15,7 @@ const themeModifier = {
     }
   `,
   danger: () => css`
-    background-color: transparent;
+    background-color: ${theme.colors.red};
     color: ${theme.colors.white};
 
     &:hover {
