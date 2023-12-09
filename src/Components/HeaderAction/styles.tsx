@@ -26,7 +26,7 @@ export const Title = styled.h1`
     position: absolute;
     left: 0px;
     top: 4px;
-    width: 10px;
+    width: 12px;
     height: 40px;
     background-color: ${theme.colors.green};
     border-radius: 8px;
