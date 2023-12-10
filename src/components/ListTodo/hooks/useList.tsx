@@ -23,7 +23,7 @@ const UseList = (status?: StatusEnum) => {
         const data = await getTask({
           ...params,
           page: numberPage,
-          size: 1,
+          size: 5,
         });
         setTasks(data.content);
         setPagination(
