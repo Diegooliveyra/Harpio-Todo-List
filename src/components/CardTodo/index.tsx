@@ -1,18 +1,26 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { capitalizeFirstLetter } from '@/ultis/texts';
+import { ITaskDTO } from '@/service/tasks.interface';
 import * as S from './styles';
-import { textTrucante } from '@/ultis/texts';
+
+type StatusType = 'NotStarted' | 'InProgress' | 'Closed';
 
 type CardTodoProps = {
-  description: string;
+  todo: ITaskDTO;
 };
 
-const CardTodo = ({ description }: CardTodoProps) => {
+const CardTodo = ({ todo }: CardTodoProps) => {
   const router = useRouter();
+
   return (
-    <S.Card onClick={() => router.push('/form/id')}>
-      {textTrucante({ text: description, size: 150 })}
+    <S.Card
+      status={todo.status as StatusType}
+      onClick={() => router.push(`/form/${todo.id}`)}
+    >
+      {capitalizeFirstLetter(todo?.description)}
+      <S.Badge status={todo.status as StatusType}>{todo.status}</S.Badge>
     </S.Card>
   );
 };
