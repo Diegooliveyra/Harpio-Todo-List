@@ -37,3 +37,14 @@ export const NotFountText = styled.div`
     color: ${theme.colors.black};
   `}
 `;
+
+export const WrapperLoading = styled.div`
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    width: 250px;
+  }
+`;
