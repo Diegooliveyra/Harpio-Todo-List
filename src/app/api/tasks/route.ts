@@ -38,8 +38,11 @@ export const GET = async (req: Request) => {
   try {
     const { searchParams } = new URL(req.url);
     const status = searchParams.get('status') as StatusEnum;
-    const page = searchParams.get('page');
-    const size = searchParams.get('size');
+    const pageParam = searchParams.get('page');
+    const sizeParam = searchParams.get('size');
+
+    const currentPage = pageParam ? +pageParam : 1;
+    const pageSize = sizeParam ? +sizeParam : 10;
 
     await connectToDatabase();
 
@@ -47,33 +50,36 @@ export const GET = async (req: Request) => {
       where?: { status: StatusEnum };
       skip?: number;
       take?: number;
+      orderBy?: { createdAt: 'asc' | 'desc' };
     } = {};
 
     if (status) {
       queryOptions.where = { status: StatusEnum[status] };
     }
 
-    if (page && size) {
-      queryOptions.skip = (+page - 1) * +size;
-      queryOptions.take = +size;
+    if (currentPage && pageSize) {
+      queryOptions.skip = (currentPage - 1) * +pageSize;
+      queryOptions.take = pageSize;
     }
 
-    const [tasks, totalTasks] = await Promise.all([
+    queryOptions.orderBy = { createdAt: 'desc' };
+
+    const [tasks, totalElements] = await Promise.all([
       prisma.task.findMany(queryOptions),
       prisma.task.count({
         where: { status: StatusEnum[status] },
       }),
     ]);
 
-    const totalPages = Math.ceil(totalTasks / +size!);
+    const totalPages = Math.ceil(totalElements / +pageSize!);
 
     return NextResponse.json(
       {
         content: tasks,
-        totalElements: totalTasks,
+        totalElements,
         totalPages,
-        pageSize: +size!,
-        currentPage: +page!,
+        pageSize,
+        currentPage,
       },
       { status: 201 }
     );
