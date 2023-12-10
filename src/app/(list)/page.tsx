@@ -7,7 +7,7 @@ import { StatusEnum } from '@prisma/client';
 const ListPage = () => {
   const tabs = [
     {
-      label: 'All',
+      label: 'All tasks',
       component: <ListTodo />,
     },
     {
