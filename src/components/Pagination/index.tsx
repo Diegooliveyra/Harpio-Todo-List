@@ -1,15 +1,15 @@
-'use client';
 import React, { useState } from 'react';
 
 import * as S from './styles';
 
 interface PaginationPros {
   totalPage: number;
+
   actualPage: number;
   setNumberPage: any;
 }
 
-const Pagination = ({
+const PaginationNew = ({
   actualPage,
   totalPage,
   setNumberPage,
@@ -20,15 +20,15 @@ const Pagination = ({
   React.useEffect(() => {
     const page = [];
     if (totalPage <= 5) {
-      for (let n = 0; n < totalPage; n++) {
+      for (let n = 1; n <= totalPage; n++) {
         page.push(n);
       }
       setPages(page);
     } else {
-      const downlimit = selectedElement - 5 < 0 ? 0 : selectedElement - 5;
+      const downlimit = selectedElement - 5 < 1 ? 1 : selectedElement - 5;
       const uplimit =
         selectedElement + 5 < totalPage ? selectedElement + 5 : totalPage;
-      for (let n = downlimit; n < uplimit; n++) {
+      for (let n = downlimit; n <= uplimit; n++) {
         page.push(n);
       }
       setPages(page);
@@ -74,7 +74,7 @@ const Pagination = ({
           <span
             onClick={() => prev(selectedElement <= 0 ? 0 : selectedElement - 1)}
           >
-            Anterior
+            Preview
           </span>
         </div>
 
@@ -85,7 +85,7 @@ const Pagination = ({
               className={page === selectedElement ? 'actived' : ''}
               onClick={() => (setSelectedElement(page), setNumberPage(page))}
             >
-              {page + 1}
+              {page}
             </button>
           ))}
         </S.Buttons>
@@ -100,7 +100,7 @@ const Pagination = ({
               )
             }
           >
-            Próxima
+            Next
           </span>
         </div>
       </S.Pagination>
@@ -108,4 +108,4 @@ const Pagination = ({
   );
 };
 
-export default Pagination;
+export default PaginationNew;
