@@ -7,6 +7,7 @@ export const Container = styled.header`
   ${() => css`
     max-width: 140rem;
     margin: 0 auto;
-    padding: ${theme.spacings.xxlarge} ${theme.spacings.xsmall} 0;
+    padding: ${theme.spacings.xxlarge} ${theme.spacings.xsmall}
+      ${theme.spacings.small};
   `}
 `;

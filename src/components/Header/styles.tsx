@@ -6,11 +6,13 @@ import theme from '@/styles/theme';
 export const Container = styled.header`
   ${() => css`
     padding: ${theme.spacings.xsmall};
+    background-color: ${theme.colors.white};
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     border-bottom: 1px solid ${theme.colors.grayLight};
+    z-index: 10;
   `}
 `;
 
