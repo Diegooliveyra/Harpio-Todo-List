@@ -6,7 +6,7 @@ const FormPage = () => {
   return (
     <Layout>
       <HeaderAction
-        title="Create new"
+        title="Create new task"
         actionName="Back"
         route="/"
         actionIcon="/assets/icons/arrow-back.svg"

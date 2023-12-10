@@ -3,34 +3,32 @@ import HeaderAction from '@/components/HeaderAction';
 import Layout from '@/components/Layout';
 import ListTodo from '@/components/ListTodo';
 import NavTabs from '@/components/NavTabs';
+import { getTask } from '@/service/tasks.service';
+import { StatusEnum } from '@prisma/client';
 
 const ListPage = () => {
   const tabs = [
     {
       label: 'All',
-      component: (
-        <ListTodo
-          todos={['Lorem Ipsum is simply dummy text of the printing ', 'all 2']}
-        />
-      ),
+      component: <ListTodo />,
     },
     {
       label: 'Not started',
-      component: <ListTodo todos={[]} />,
+      component: <ListTodo status={StatusEnum.NotStarted} />,
     },
     {
       label: 'In progress',
-      component: <ListTodo todos={[]} />,
+      component: <ListTodo status={StatusEnum.InProgress} />,
     },
     {
       label: 'Closed',
-      component: <ListTodo todos={[]} />,
+      component: <ListTodo status={StatusEnum.Closed} />,
     },
   ];
   return (
     <Layout>
       <HeaderAction
-        title="My list"
+        title="My tasks"
         actionName="Create new"
         route="/form"
         actionIcon="/assets/icons/plus.svg"

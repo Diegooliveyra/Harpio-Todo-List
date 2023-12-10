@@ -31,7 +31,6 @@ export const ErrorMessage = styled.span`
 export const Label = styled.label`
   font-size: ${theme.font.sizes.body};
   color: ${theme.colors.black};
-  margin-bottom: 5px;
   display: block;
 `;
 
@@ -45,6 +44,7 @@ export const TextAreaStyled = styled.textarea`
   width: 100%;
   outline: none;
   resize: none;
+  margin-top: 5px;
 
   &:focus {
     border-color: ${theme.colors.green};

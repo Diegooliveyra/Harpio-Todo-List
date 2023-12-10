@@ -57,9 +57,9 @@ const FormTodo = ({ todos }: FormTodoProps) => {
           </S.ErrorMessage>
         )}
       </S.InputWrapper>
-
+      <S.Label>Status</S.Label>
       <SimpleSelect
-        placeholder="Select an option"
+        placeholder="What is the current status of the task?"
         control={control}
         name="status"
         options={options}
