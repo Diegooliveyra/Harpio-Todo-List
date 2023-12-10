@@ -1,11 +1,24 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import theme from '@/styles/theme';
+
+const toRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+
+  }
+  `;
 
 export const Container = styled.div`
   ${() => css`
     display: flex;
     flex-direction: column;
     gap: ${theme.spacings.xxsmall};
+    animation: ${toRight} ease 0.4s;
   `}
 `;
 
@@ -14,6 +27,7 @@ export const WrapperPagination = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    padding-right: ${theme.spacings.xsmall};
   `}
 `;
 
