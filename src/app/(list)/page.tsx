@@ -1,9 +1,7 @@
-import CardTodo from '@/components/CardTodo';
 import HeaderAction from '@/components/HeaderAction';
 import Layout from '@/components/Layout';
 import ListTodo from '@/components/ListTodo';
 import NavTabs from '@/components/NavTabs';
-import { getTask } from '@/service/tasks.service';
 import { StatusEnum } from '@prisma/client';
 
 const ListPage = () => {
