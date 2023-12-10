@@ -2,7 +2,7 @@ import FormTodo from '@/components/FormTodo';
 import HeaderAction from '@/components/HeaderAction';
 import Layout from '@/components/Layout';
 
-const FormPage = () => {
+const FormPage = ({ params }: { params: { id: string } }) => {
   return (
     <Layout>
       <HeaderAction
@@ -12,7 +12,7 @@ const FormPage = () => {
         actionIcon="/assets/icons/arrow-back.svg"
       />
 
-      <FormTodo />
+      <FormTodo id={params.id} />
     </Layout>
   );
 };

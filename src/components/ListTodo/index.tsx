@@ -31,7 +31,7 @@ const ListTodo = ({ status }: ListTodoProps) => {
             <>
               <S.Container>
                 {tasks.map((todo) => (
-                  <CardTodo key={todo.id} description={todo.description} />
+                  <CardTodo key={todo.id} todo={todo} />
                 ))}
               </S.Container>
 
