@@ -63,3 +63,14 @@ export const WrapperButtons = styled.div`
     width: fit-content;
   }
 `;
+
+export const WrapperLoading = styled.div`
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    width: 250px;
+  }
+`;

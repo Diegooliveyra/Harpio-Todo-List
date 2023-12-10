@@ -6,7 +6,7 @@ import {
 } from '@/service/tasks.service';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -19,6 +19,7 @@ const schema = z.object({
 
 const useFormControl = (id?: string) => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const {
     handleSubmit,
     register,
@@ -32,9 +33,16 @@ const useFormControl = (id?: string) => {
 
   const getTaskData = useCallback(async () => {
     if (!id) return;
-    const task = await getTaskById(id);
-    setValue('description', task.description);
-    setValue('status', task.status);
+    try {
+      setLoading(true);
+      const task = await getTaskById(id);
+      setValue('description', task.description);
+      setValue('status', task.status);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   }, [id, setValue]);
 
   useEffect(() => {
@@ -77,6 +85,7 @@ const useFormControl = (id?: string) => {
     control,
     errors,
     removeTask,
+    loading,
   };
 };
 
