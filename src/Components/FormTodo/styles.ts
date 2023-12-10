@@ -23,6 +23,11 @@ export const InputWrapper = styled.div`
   margin-bottom: 15px;
 `;
 
+export const ErrorMessage = styled.span`
+  font-size: ${theme.font.sizes.caption};
+  color: ${theme.colors.red};
+`;
+
 export const Label = styled.label`
   font-size: ${theme.font.sizes.body};
   color: ${theme.colors.black};

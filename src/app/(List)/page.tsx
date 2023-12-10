@@ -10,28 +10,21 @@ const ListPage = () => {
       label: 'All',
       component: (
         <ListTodo
-          todos={[
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-            'all 2',
-          ]}
+          todos={['Lorem Ipsum is simply dummy text of the printing ', 'all 2']}
         />
       ),
     },
     {
       label: 'Not started',
-      component: (
-        <ListTodo todos={['Not started todo 1', ' Not started todo 2']} />
-      ),
+      component: <ListTodo todos={[]} />,
     },
     {
       label: 'In progress',
-      component: (
-        <ListTodo todos={['In progress todo 1', 'In progress todo 2']} />
-      ),
+      component: <ListTodo todos={[]} />,
     },
     {
       label: 'Closed',
-      component: <ListTodo todos={['Closed todo 1', 'Closed todo 2']} />,
+      component: <ListTodo todos={[]} />,
     },
   ];
   return (

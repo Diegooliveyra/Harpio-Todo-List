@@ -4,6 +4,7 @@ import { useState } from 'react';
 import CardTodo from '../CardTodo';
 import Pagination from '../Pagination';
 import * as S from './styles';
+import { ReactSVG } from 'react-svg';
 type ListTodoProps = {
   todos: string[];
 };
@@ -29,7 +30,14 @@ const ListTodo = ({ todos }: ListTodoProps) => {
           </S.WrapperPagination>
         </>
       ) : (
-        <p>Nada aqui</p>
+        <S.NotFound>
+          <ReactSVG
+            src={'/assets/imgs/not-found.svg'}
+            role={'figure'}
+            wrapper="div"
+          />
+          <S.NotFountText>Nenhum registro encontrado</S.NotFountText>
+        </S.NotFound>
       )}
     </>
   );

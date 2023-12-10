@@ -6,20 +6,36 @@ import * as S from './styles';
 
 import { options } from '@/ultis/const/options';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import SimpleSelect from '../Selected';
 import { useEffect } from 'react';
+import { z } from 'zod';
 
 type FormTodoProps = {
   todos?: string[];
 };
 
+const schema = z.object({
+  description: z.string().max(30, 'Maximum 30 characters required'),
+  status: z.string({
+    required_error: 'Required field',
+  }),
+});
+
 const FormTodo = ({ todos }: FormTodoProps) => {
-  const { handleSubmit, register, control, setValue } = useForm({
+  const {
+    handleSubmit,
+    register,
+    control,
+    setValue,
+    formState: { errors },
+  } = useForm({
     mode: 'all',
+    resolver: zodResolver(schema),
   });
 
   useEffect(() => {
-    setValue('description', 'tesdsdsdsd tett');
+    setValue('description', '');
   }, [setValue]);
 
   const submit: SubmitHandler<FieldValues> = (data) => {
@@ -35,6 +51,11 @@ const FormTodo = ({ todos }: FormTodoProps) => {
           placeholder={'Describe your task here'}
           {...register('description')}
         />
+        {errors.description && (
+          <S.ErrorMessage>
+            {errors.description.message?.toString()}
+          </S.ErrorMessage>
+        )}
       </S.InputWrapper>
 
       <SimpleSelect
@@ -43,6 +64,9 @@ const FormTodo = ({ todos }: FormTodoProps) => {
         name="status"
         options={options}
       />
+      {errors.status && (
+        <S.ErrorMessage>{errors.status.message?.toString()}</S.ErrorMessage>
+      )}
 
       <S.WrapperButtons>
         <Button theme="danger">

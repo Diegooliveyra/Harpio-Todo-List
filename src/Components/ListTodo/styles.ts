@@ -16,3 +16,24 @@ export const WrapperPagination = styled.div`
     justify-content: flex-end;
   `}
 `;
+
+export const NotFound = styled.div`
+  ${() => css`
+    border-radius: ${theme.border.radius};
+    height: 388px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: ${theme.spacings.small};
+  `}
+`;
+
+export const NotFountText = styled.div`
+  ${() => css`
+    font-weight: ${theme.font.normal};
+    font-size: ${theme.font.sizes.body};
+    line-height: ${theme.spacings.small};
+    color: ${theme.colors.black};
+  `}
+`;
