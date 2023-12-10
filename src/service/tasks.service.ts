@@ -33,7 +33,7 @@ export async function createTask(task: ITaskForm): Promise<ITaskDTO> {
   return response.json();
 }
 
-export async function update(
+export async function updateTask(
   id: string,
   updatedTask: ITaskForm
 ): Promise<ITaskDTO> {
