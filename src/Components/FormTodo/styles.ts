@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import theme from '@/styles/theme';
 
-export const Form = styled.div`
+export const Form = styled.form`
   ${() => css`
     display: flex;
     flex-direction: column;
