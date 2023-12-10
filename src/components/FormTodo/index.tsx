@@ -1,46 +1,22 @@
 'use client';
 
 import { ReactSVG } from 'react-svg';
-import Button from '../Button';
-import * as S from './styles';
 
 import { options } from '@/ultis/const/options';
-import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import useFormControl from './hooks/useForm';
+
 import SimpleSelect from '../Selected';
-import { useEffect } from 'react';
-import { z } from 'zod';
+import Button from '../Button';
+
+import * as S from './styles';
 
 type FormTodoProps = {
-  todos?: string[];
+  id?: string;
 };
 
-const schema = z.object({
-  description: z.string().max(30, 'Maximum 30 characters required'),
-  status: z.string({
-    required_error: 'Required field',
-  }),
-});
-
-const FormTodo = ({ todos }: FormTodoProps) => {
-  const {
-    handleSubmit,
-    register,
-    control,
-    setValue,
-    formState: { errors },
-  } = useForm({
-    mode: 'all',
-    resolver: zodResolver(schema),
-  });
-
-  useEffect(() => {
-    setValue('description', '');
-  }, [setValue]);
-
-  const submit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
-  };
+const FormTodo = ({ id }: FormTodoProps) => {
+  const { control, handleSubmit, register, submit, errors, removeTask } =
+    useFormControl(id);
 
   return (
     <S.Form onSubmit={handleSubmit(submit)}>
@@ -69,10 +45,13 @@ const FormTodo = ({ todos }: FormTodoProps) => {
       )}
 
       <S.WrapperButtons>
-        <Button theme="danger">
-          <ReactSVG src="/assets/icons/trash.svg" />
-          Delete
-        </Button>
+        {!!id ? (
+          <Button theme="danger" type="button" onClick={removeTask}>
+            <ReactSVG src="/assets/icons/trash.svg" />
+            Delete
+          </Button>
+        ) : null}
+
         <Button theme="primary" type="submit">
           <ReactSVG src="/assets/icons/confirm.svg" />
           Save
