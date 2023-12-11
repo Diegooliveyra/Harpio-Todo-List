@@ -1,14 +1,13 @@
 'use client';
 
-import { useState } from 'react';
-import CardTodo from '../CardTodo';
-import Pagination from '../Pagination';
-import * as S from './styles';
 import { ReactSVG } from 'react-svg';
-import { getTask } from '@/service/tasks.service';
+import Pagination from '../Pagination';
+import CardTodo from '../CardTodo';
+
+import { useRouter } from 'next/navigation';
 import { StatusEnum } from '@prisma/client';
 import UseList from './hooks/useList';
-import { useRouter } from 'next/navigation';
+import * as S from './styles';
 
 type ListTodoProps = {
   status?: StatusEnum;
