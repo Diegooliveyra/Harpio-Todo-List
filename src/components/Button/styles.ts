@@ -48,6 +48,11 @@ export const Container = styled.button<ContainerProps>`
 
     ${theme && themeModifier[themebtn]}
 
+    &:disabled,
+    [disabled] {
+      opacity: 0.6;
+    }
+
     svg {
       margin-top: 2px;
     }
