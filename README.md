@@ -14,7 +14,7 @@ Este repositório contém um aplicativo Todo List criado com Next.js. O aplicati
 
 ## ✨ Deploy
 
-Você pode conferir o resultado final em: [Vercel](https://harpio-todo-list.vercel.app/form)
+Você pode conferir o resultado final em: [Vercel](https://harpio-todo-list.vercel.app/)
 
 ## 🎯 Objetivo do projeto
 
@@ -34,23 +34,23 @@ Para a realização desse projeto foi utilizado as seguintes tecnologias/linguag
 
 #### Vantagens de usar Prisma, MongoDB, React Hook Form, Zod e componentes estilizados
 
-##### Prisma
+#### Prisma
 
 Prisma é um kit de ferramentas de banco de dados moderno que simplifica o acesso ao banco de dados no desenvolvimento web.
 
-##### MongoDB
+#### MongoDB
 
 MongoDB é um banco de dados de documentos NoSQL que oferece diversas vantagens:
 
-##### React Hook Form
+#### React Hook Form
 
 React Hook Form é uma biblioteca para gerenciar o estado do formulário e validação em aplicativos React.
 
-##### Zod
+#### Zod
 
 Zod é uma primeira biblioteca de declaração e validação de schema
 
-##### Styled Components
+#### Styled Components
 
 Styled Components é uma poderosa biblioteca CSS-in-JS desenvolvida para estilizar aplicações React. Escolhi esta ferramenta em detrimento do Tailwind CSS, baseando-me na minha experiência prévia com a mesma. Considerando o prazo de entrega de 3 dias, a familiaridade com Styled Components aumentará significativamente a minha produtividade, permitindo-me concentrar em outras tecnologias essenciais para o projeto.
 
