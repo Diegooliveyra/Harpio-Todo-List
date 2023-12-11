@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+
 import { fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import { renderWithTheme } from '@/ultis/tests/helpers';
 import HeaderAction from '.';

@@ -1,7 +1,6 @@
 import { connectToDatabase } from '@/helpers/server-helpers';
 import { NextResponse } from 'next/server';
 
-import { StatusEnum } from '@prisma/client';
 import prisma from '../../../../../prisma';
 
 export const GET = async (

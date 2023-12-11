@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { capitalizeFirstLetter } from '@/ultis/texts';
 import { ITaskDTO } from '@/service/tasks.interface';
 import * as S from './styles';

@@ -1,7 +1,5 @@
 /* eslint-disable react/display-name */
-import React from 'react';
 
-import '@testing-library/jest-dom';
 import Layout from './';
 import { renderWithTheme } from '@/ultis/tests/helpers';
 
