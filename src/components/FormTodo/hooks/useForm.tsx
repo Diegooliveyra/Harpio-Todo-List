@@ -1,3 +1,4 @@
+import { TodoContext } from '@/provider/todo.provider';
 import {
   createTask,
   deleteTask,
@@ -6,9 +7,14 @@ import {
 } from '@/service/tasks.service';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
+
+type SendingRequest = {
+  delete: boolean;
+  create: boolean;
+};
 
 const schema = z.object({
   description: z.string().max(30, 'Maximum 30 characters required'),
@@ -18,8 +24,13 @@ const schema = z.object({
 });
 
 const useFormControl = (id?: string) => {
+  const { todos } = useContext(TodoContext);
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const [sending, setSending] = useState<SendingRequest>({
+    create: false,
+    delete: false,
+  });
   const {
     handleSubmit,
     register,
@@ -33,6 +44,17 @@ const useFormControl = (id?: string) => {
 
   const getTaskData = useCallback(async () => {
     if (!id) return;
+
+    if (todos.length) {
+      todos.forEach((task) => {
+        if (task.id === id) {
+          setValue('description', task.description);
+          setValue('status', task.status);
+        }
+      });
+
+      return;
+    }
     try {
       setLoading(true);
       const task = await getTaskById(id);
@@ -43,7 +65,7 @@ const useFormControl = (id?: string) => {
     } finally {
       setLoading(false);
     }
-  }, [id, setValue]);
+  }, [id, setValue, todos]);
 
   useEffect(() => {
     getTaskData();
@@ -51,6 +73,7 @@ const useFormControl = (id?: string) => {
 
   const submit: SubmitHandler<FieldValues> = async (data) => {
     try {
+      setSending({ ...sending, create: true });
       if (id) {
         await updateTask(id, {
           description: data.description,
@@ -65,16 +88,21 @@ const useFormControl = (id?: string) => {
       router.push('/');
     } catch (error) {
       console.log(error);
+    } finally {
+      setSending({ ...sending, create: false });
     }
   };
 
   const removeTask = async () => {
     if (!id) return;
     try {
+      setSending({ ...sending, delete: true });
       await deleteTask(id);
       router.push('/');
     } catch (error) {
       console.log(error);
+    } finally {
+      setSending({ ...sending, delete: false });
     }
   };
 
@@ -86,6 +114,7 @@ const useFormControl = (id?: string) => {
     errors,
     removeTask,
     loading,
+    sending,
   };
 };
 

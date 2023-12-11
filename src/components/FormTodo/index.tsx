@@ -23,6 +23,7 @@ const FormTodo = ({ id }: FormTodoProps) => {
     errors,
     removeTask,
     loading,
+    sending,
   } = useFormControl(id);
 
   return (
@@ -64,15 +65,20 @@ const FormTodo = ({ id }: FormTodoProps) => {
 
           <S.WrapperButtons>
             {!!id ? (
-              <Button theme="danger" type="button" onClick={removeTask}>
+              <Button
+                theme="danger"
+                type="button"
+                onClick={removeTask}
+                disabled={sending.delete}
+              >
                 <ReactSVG src="/assets/icons/trash.svg" />
-                Delete
+                {sending.delete ? 'Deleting...' : 'Delete'}
               </Button>
             ) : null}
 
-            <Button theme="primary" type="submit">
+            <Button theme="primary" type="submit" disabled={sending.create}>
               <ReactSVG src="/assets/icons/confirm.svg" />
-              Save
+              {sending.create ? 'Saving...' : 'Save'}
             </Button>
           </S.WrapperButtons>
         </S.Form>
