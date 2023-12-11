@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 
 import GlobalStyles from '@/styles/GlobalStyles';
 import StyledComponentsRegistry from '@/lib/styledComponentsRegistry';
+import { TodoContextProvider } from '@/provider/todo.provider';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '600'] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-          {children}
-        </StyledComponentsRegistry>
+        <TodoContextProvider>
+          <StyledComponentsRegistry>
+            <GlobalStyles />
+            {children}
+          </StyledComponentsRegistry>
+        </TodoContextProvider>
       </body>
     </html>
   );
