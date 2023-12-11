@@ -17,7 +17,10 @@ type SendingRequest = {
 };
 
 const schema = z.object({
-  description: z.string().max(30, 'Maximum 30 characters required'),
+  description: z
+    .string()
+    .max(30, 'Maximum 30 characters required')
+    .min(3, 'Minimum 3 characters required'),
   status: z.string({
     required_error: 'Required field',
   }),
