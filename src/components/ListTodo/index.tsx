@@ -57,7 +57,7 @@ const ListTodo = ({ status }: ListTodoProps) => {
                 role={'figure'}
                 wrapper="div"
               />
-              <S.NotFountText>Nenhum registro encontrado</S.NotFountText>
+              <S.NotFountText>No tasks found</S.NotFountText>
             </S.NotFound>
           )}
         </>
