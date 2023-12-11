@@ -78,7 +78,13 @@ const FormTodo = ({ id }: FormTodoProps) => {
 
             <Button theme="primary" type="submit" disabled={sending.create}>
               <ReactSVG src="/assets/icons/confirm.svg" />
-              {sending.create ? 'Saving...' : 'Save'}
+              {id
+                ? sending.create
+                  ? 'Updating...'
+                  : 'Update'
+                : sending.create
+                ? 'Creating...'
+                : 'Create'}
             </Button>
           </S.WrapperButtons>
         </S.Form>
