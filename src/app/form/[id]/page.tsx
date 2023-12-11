@@ -2,7 +2,7 @@ import FormTodo from '@/components/FormTodo';
 import HeaderAction from '@/components/HeaderAction';
 import Layout from '@/components/Layout';
 
-const FormPage = ({ params }: { params: { id: string } }) => {
+const EditFormPage = ({ params }: { params: { id: string } }) => {
   return (
     <Layout>
       <HeaderAction
@@ -17,4 +17,4 @@ const FormPage = ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default FormPage;
+export default EditFormPage;
