@@ -1,13 +1,15 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import * as S from './styles';
 import Image from 'next/image';
 
 const Header = () => {
+  const router = useRouter();
   return (
     <S.Container>
       <S.Content>
-        <S.Logo>
+        <S.Logo onClick={() => router.push('/')}>
           <Image
             src={'/assets/imgs/logotipo.png'}
             alt="logotipo"

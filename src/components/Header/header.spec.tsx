@@ -1,7 +1,10 @@
 import Header from '.';
 import { renderWithTheme } from '@/ultis/tests/helpers';
 
-// Mocking the next/image component
+jest.mock('next/navigation', () => ({
+  useRouter: jest.fn(),
+}));
+
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({

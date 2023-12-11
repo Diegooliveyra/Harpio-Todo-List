@@ -31,6 +31,7 @@ export const Logo = styled.div`
     display: flex;
     gap: ${theme.spacings.xxsmall};
     align-items: center;
+    cursor: pointer;
 
     h2 {
       font-size: ${theme.font.sizes.h2};
