@@ -26,6 +26,6 @@ describe('FormTodo', () => {
 
     expect(screen.getByLabelText(/Description/i)).toBeInTheDocument();
 
-    expect(screen.getByText('Save')).toBeInTheDocument();
+    expect(screen.getByText('Create')).toBeInTheDocument();
   });
 });
