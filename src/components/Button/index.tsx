@@ -17,7 +17,7 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <S.Container themeBtn={theme} disabled={disabled} {...rest}>
+    <S.Container themebtn={theme} disabled={disabled} {...rest}>
       {children}
     </S.Container>
   );

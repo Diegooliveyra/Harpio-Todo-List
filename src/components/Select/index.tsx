@@ -13,7 +13,7 @@ type SelectProps = {
 const SimpleSelect = ({ control, options, name, placeholder }: SelectProps) => {
   return (
     <Controller
-      control={control}
+      control={control as Control}
       render={({ field: { onChange, value, name, ref } }) => (
         <Select
           placeholder={placeholder}

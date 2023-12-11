@@ -26,11 +26,11 @@ const themeModifier = {
 
 type ContainerProps = {
   disabled: boolean;
-  themeBtn: ThemeButton;
+  themebtn: ThemeButton;
 };
 
 export const Container = styled.button<ContainerProps>`
-  ${({ disabled, themeBtn }) => css`
+  ${({ disabled, themebtn }) => css`
     display: flex;
     align-items: center;
     gap: ${theme.spacings.xxsmall};
@@ -46,7 +46,7 @@ export const Container = styled.button<ContainerProps>`
     cursor: ${disabled ? 'not-allowed' : 'pointer'};
     opacity: ${disabled ? '.3' : '1'};
 
-    ${theme && themeModifier[themeBtn]}
+    ${theme && themeModifier[themebtn]}
 
     svg {
       margin-top: 2px;

@@ -22,16 +22,16 @@ export const GuidePanel = styled.div`
 `;
 
 type TabsProps = {
-  actived?: boolean;
+  $actived?: boolean;
 };
 
 export const Tabs = styled.div<TabsProps>`
-  ${({ actived }) => css`
+  ${({ $actived }) => css`
     display: flex;
     height: 50px;
     background: inherit;
-    color: ${actived ? theme.colors.green : theme.colors.black};
-    border-bottom: ${actived
+    color: ${$actived ? theme.colors.green : theme.colors.black};
+    border-bottom: ${$actived
       ? `4px solid ${theme.colors.green}`
       : `4px solid transparent`};
 
@@ -45,7 +45,7 @@ export const Tabs = styled.div<TabsProps>`
     align-items: center;
 
     svg path {
-      fill: ${actived ? theme.colors.green : theme.colors.black};
+      fill: ${$actived ? theme.colors.green : theme.colors.black};
       fill-opacity: 0.88;
     }
 

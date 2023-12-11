@@ -5,10 +5,10 @@ import { ReactSVG } from 'react-svg';
 import { options } from '@/ultis/const/options';
 import useFormControl from './hooks/useForm';
 
-import SimpleSelect from '../Selected';
 import Button from '../Button';
 
 import * as S from './styles';
+import SimpleSelect from '../Select';
 
 type FormTodoProps = {
   id?: string;
@@ -38,8 +38,9 @@ const FormTodo = ({ id }: FormTodoProps) => {
       ) : (
         <S.Form onSubmit={handleSubmit(submit)}>
           <S.InputWrapper>
-            <S.Label>Description</S.Label>
+            <S.Label htmlFor="description">Description</S.Label>
             <S.TextAreaStyled
+              id="description"
               rows={4}
               placeholder={'Describe your task here'}
               {...register('description')}
@@ -50,7 +51,7 @@ const FormTodo = ({ id }: FormTodoProps) => {
               </S.ErrorMessage>
             )}
           </S.InputWrapper>
-          <S.Label>Status</S.Label>
+          <S.Label htmlFor="status">Status</S.Label>
           <SimpleSelect
             placeholder="What is the current status of the task?"
             control={control}

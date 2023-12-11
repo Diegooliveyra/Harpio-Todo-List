@@ -17,7 +17,7 @@ export interface ITaskDTO {
   id: string;
   description: string;
   status: string;
-  createdAt: string;
+  createdAt?: string;
 }
 
 export type GetTaskProps = {

@@ -20,7 +20,7 @@ const NavTabs = ({ tabs, activeTab }: NavTabsProps) => {
         {tabs.map((item, index) => (
           <S.Tabs
             key={index}
-            actived={index === actived}
+            $actived={index === actived}
             onClick={() => {
               setActived(index);
               if (item?.onClick) item.onClick();
@@ -30,7 +30,9 @@ const NavTabs = ({ tabs, activeTab }: NavTabsProps) => {
           </S.Tabs>
         ))}
       </S.Content>
-      {tabs.map((item, index) => index === actived && item.component)}
+      {tabs.map((item, index) => {
+        return index === actived && <div key={index}>{item.component}</div>;
+      })}
     </S.GuidePanel>
   );
 };

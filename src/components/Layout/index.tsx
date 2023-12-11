@@ -1,8 +1,7 @@
 'use client';
 
-import { ReactSVG } from 'react-svg';
 import * as S from './styles';
-import Image from 'next/image';
+
 import Header from '../Header';
 
 type LayoutProps = {

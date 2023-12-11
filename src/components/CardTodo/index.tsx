@@ -10,16 +10,12 @@ type StatusType = 'NotStarted' | 'InProgress' | 'Closed';
 
 type CardTodoProps = {
   todo: ITaskDTO;
+  onClick: () => void;
 };
 
-const CardTodo = ({ todo }: CardTodoProps) => {
-  const router = useRouter();
-
+const CardTodo = ({ todo, onClick }: CardTodoProps) => {
   return (
-    <S.Card
-      status={todo.status as StatusType}
-      onClick={() => router.push(`/form/${todo.id}`)}
-    >
+    <S.Card status={todo.status as StatusType} onClick={onClick}>
       {capitalizeFirstLetter(todo?.description)}
       <S.Badge status={todo.status as StatusType}>
         {StatusEnumFormatted[todo.status as StatusType]}

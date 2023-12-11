@@ -9,7 +9,7 @@ interface PaginationPros {
   setNumberPage: any;
 }
 
-const PaginationNew = ({
+const Pagination = ({
   actualPage,
   totalPage,
   setNumberPage,
@@ -39,30 +39,12 @@ const PaginationNew = ({
     setSelectedElement(actualPage);
   }, [actualPage]);
 
-  // FIST PAGE
-
-  function first(number: number) {
-    setNumberPage(number);
-    setSelectedElement(number);
-  }
-
-  // NEXT PAGE
-
   function next(number: number) {
     setNumberPage(number);
     setSelectedElement(number);
   }
 
-  // PREVIOUS PAGE
-
   function prev(number: number) {
-    setNumberPage(number);
-    setSelectedElement(number);
-  }
-
-  // LAST PAGE
-
-  function last(number: number) {
     setNumberPage(number);
     setSelectedElement(number);
   }
@@ -108,4 +90,4 @@ const PaginationNew = ({
   );
 };
 
-export default PaginationNew;
+export default Pagination;

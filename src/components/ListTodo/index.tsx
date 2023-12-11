@@ -8,12 +8,14 @@ import { ReactSVG } from 'react-svg';
 import { getTask } from '@/service/tasks.service';
 import { StatusEnum } from '@prisma/client';
 import UseList from './hooks/useList';
+import { useRouter } from 'next/navigation';
 
 type ListTodoProps = {
   status?: StatusEnum;
 };
 
 const ListTodo = ({ status }: ListTodoProps) => {
+  const router = useRouter();
   const { tasks, pagination, loading } = UseList(status);
 
   return (
@@ -32,7 +34,12 @@ const ListTodo = ({ status }: ListTodoProps) => {
             <>
               <S.Container>
                 {tasks.map((todo) => (
-                  <CardTodo key={todo.id} todo={todo} />
+                  <CardTodo
+                    data-testid={`task-${todo.id}`}
+                    key={todo.id}
+                    todo={todo}
+                    onClick={() => router.push(`/form/${todo.id}`)}
+                  />
                 ))}
               </S.Container>
 
